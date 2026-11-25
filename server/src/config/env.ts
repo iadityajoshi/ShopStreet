@@ -11,6 +11,6 @@ export const env = {
     "postgresql://postgres:postgres@localhost:5432/shopstreet",
   JWT_SECRET:
     process.env.JWT_SECRET || "shopstreet_super_secret_jwt_key_change_in_production_123",
-  JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || "7d",
+  JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || "2h",
   CLIENT_URL: process.env.CLIENT_URL || "http://localhost:5173",
 };
