@@ -2,6 +2,8 @@ import express, { Application, Request, Response, NextFunction } from "express";
 import cors from "cors";
 import { env } from "./config/env";
 import authRoutes from "./routes/auth.routes";
+import productRoutes from "./routes/product.routes";
+import { getCategories } from "./controllers/product.controller";
 import { errorHandler } from "./middleware/error.middleware";
 import { ApiError } from "./utils/ApiError";
 
@@ -29,6 +31,8 @@ app.get("/health", (_req: Request, res: Response) => {
 
 // 4. Mount Application Feature Routers
 app.use("/api/auth", authRoutes);
+app.use("/api/products", productRoutes);
+app.get("/api/categories", getCategories);
 
 // 5. 404 Handler for undefined routes
 app.use((req: Request, _res: Response, next: NextFunction) => {
